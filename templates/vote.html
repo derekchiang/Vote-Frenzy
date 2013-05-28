@@ -1,0 +1,27 @@
+<template name="board">
+  <h1>{{topic.text}}</h1>
+
+  <div class="board">
+    {{#each options}}
+      {{> option}}
+    {{/each}}
+  </div>
+
+  {{#if selected_option}}
+  <div class="details">
+    <div class="text">{{selected_option}}</div>
+    <input type="button" class="inc" value="Vote for this option" />
+  </div>
+  {{/if}}
+
+  {{#unless selected_option}}
+  <div class="none">Click an option to select</div>
+  {{/unless}}
+</template>
+
+<template name="option">
+  <div class="option {{selected}}">
+    <span class="text">{{text}}</span>
+    <span class="votes">{{votes}}</span>
+  </div>
+</template>

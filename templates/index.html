@@ -1,0 +1,17 @@
+<template name="index">
+  <h2>Create a topic:</h2>
+  <p id="topic-warning" style="display: none">The topic is invalid.  Please try again.</p>
+  <input id="topic" />
+  <div id="option-list">
+    {{> option_list }}
+  </div>
+  <input type="button" id="add-option" value="Add Option" />
+  <input type="button" id="submit" value="Submit" />
+</template>
+
+<template name="option_list">
+  {{#iter_options options}}
+  <p id="option-warning-{{this.index}}" style="display: none">This option is invalid.</p>
+  <p>Option {{this.index}}: <input class="option" value="{{this.text}}"/></p>
+  {{/iter_options}}
+</template>
